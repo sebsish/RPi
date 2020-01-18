@@ -48,16 +48,18 @@ class modbusserver(Thread):
         self.identity.ModelName = 'Pymodbus Server'
         self.identity.MajorMinorRevision = '2.3.0'
 
-    # Insert info about def run(self)           
+    # Insert info about def run(self) 
+    # Starter UDP serveren          
     def run(self):    
         self.context = ModbusServerContext(slaves=self.store, single=True)
         StartUdpServer(self.context, identity=self.identity, address=("0.0.0.0", 502))
 
     # Insert info about def stop(f)
+    # egen def for å stoppe serveren
     def stop(self):
         StopServer()
     
-    #insert info about def getHoldingRegisterValue(self, regNr)
+    # def henter holdingregister verdier, den lister 3stk.  
     def getHoldingRegisterValue(self, regNr):
-        UNIT = 0x1
+        # UNIT = 0x1
         return self.store.getValues(3,regNr,1)

@@ -1,0 +1,9 @@
+#Gir input til inputregister (modbus)
+    #server.setInputRegisterValue(1,inputValue) 
+    #        inputValue += 1
+    #        if(inputValue > 65535):
+    #            inputValue = 0
+        
+            # printer akseverdier til terminal vindu. 
+#            print("X: ", axis_x, " Y: ", axis_y, " Z: ", axis_z)
+#            time.sleep(0.02)

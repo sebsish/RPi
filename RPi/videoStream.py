@@ -13,6 +13,10 @@ class videoStream(Thread):
         Gst.init(None)
         command = "v4l2src device=/dev/video0 ! video/x-h264,width=1280,height=720,framerate=30/1 ! rtph264pay ! udpsink host=10.13.37.190 port=5004"
         vid.pipeline = Gst.parse_launch(command)
-        vid.pipeline.set_state(Gst.State.PLAYING)
+        
+
+    # stopper videostream
+    def stop(vid):
+        stopstream() 
 
 
