@@ -38,7 +38,7 @@ class modbusserver(Thread):
         self.store = ModbusSlaveContext(
             di=ModbusSequentialDataBlock(0, [17]*100),
             co=ModbusSequentialDataBlock(0, [17]*100),
-            hr=ModbusSequentialDataBlock(0, [13]*100),
+            hr=ModbusSequentialDataBlock(0, [1500]*100),
             ir=ModbusSequentialDataBlock(0, [17]*100))
         self.identity = ModbusDeviceIdentification()
         self.identity.VendorName = 'Pymodbus'
@@ -55,7 +55,7 @@ class modbusserver(Thread):
         StartUdpServer(self.context, identity=self.identity, address=("0.0.0.0", 502))
 
     # Insert info about def stop(f)
-    # egen def for å stoppe serveren
+    # egen def for a stoppe serveren
     def stop(self):
         StopServer()
     
